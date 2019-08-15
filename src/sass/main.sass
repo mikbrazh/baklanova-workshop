@@ -1,0 +1,827 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+  color: #666
+
+::selection
+  background-color: $accent
+  color: #fff
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.65
+  font-family: $text-font
+  overflow-x: hidden
+  color: $text-dark
+  h2
+    letter-spacing: 1px
+  input, textarea
+    border: #666 1px solid
+    outline: none
+    &:focus:required:invalid
+      border-color: red
+    &:required:valid
+      border-color: green
+
+.img-responsive
+  display: block
+  max-width: 100%
+  height: auto
+  &.img-width
+    width: 100%
+
+.text-center
+  text-align: center
+
+b, strong
+  font-weight: 600
+
+// Custom SASS
+
+// PRELOADER OPENED
+.site-preloader
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background: #171717
+  z-index: 99999
+  transition: 1s all
+  opacity: 1
+  visibility: visible
+
+.sk-circle-bounce
+  top: 50%
+  transform: translate(0, -50%)
+
+.loaded
+  opacity: 0
+  visibility: hidden
+// PRELOADER CLOSED
+
+// PUSHY MENU OPENED
+.pushy
+  width: 250px
+  transform: translate3d(-250px, 0, 0)
+  background: #171717
+  ul
+    padding: 80px 35px 0 30px
+    li
+      list-style-type: none
+      margin-bottom: 10px
+      a
+        padding: 10px 0 0 0
+        transition: .5s ease
+        font-size: 18px
+        &:hover
+          color: $accent
+        &::before
+          font-family: "Font Awesome 5 Free"
+          font-size: 13px
+          content: "\f56b"
+          color: $accent
+          margin-right: 10px
+  img
+    width: 60px
+    position: absolute
+    top: 20px
+    left: 20px
+
+.hamburger
+  display: none
+  position: absolute
+  top: 7px
+  right: 0
+  +media-breakpoint-down(sm)
+    display: block
+// PUSHY MENU CLOSED
+
+// MAIN-SCREEN OPENED
+.main-screen
+  min-height: 530px
+  height: 100vh
+  position: relative
+  background-size: cover
+  background-position: center
+
+.main-screen__top-line
+  background: rgba(0, 0, 0, .25 )
+  &::after
+    content: ""
+    width: 100%
+    height: 1px
+    display: block
+    background-image: linear-gradient(to right, #000 25%, #efefef 100%)
+
+.main-screen__menu
+  height: 60px
+  position: relative
+  nav
+    position: absolute
+    top: 25px
+    right: 0
+    +media-breakpoint-down(sm)
+      display: none
+    ul
+      padding: 0
+      margin: 0
+      li
+        list-style: none
+        display: inline-block
+        margin-right: 37px
+        &:last-child
+          margin-right: 0
+        a
+          transition: .5s ease
+          color: $text-bright
+          text-decoration: none
+          &:hover
+            color: $accent
+
+.main-screen__logo
+  width: 98px
+  position: absolute
+  top: -112px
+  left: 33px
+  +media-breakpoint-down(md)
+    top: -112px
+    left: 0
+
+.main-screen__phone
+  color: $text-bright
+  font-family: $text-font
+  font-weight: normal
+  font-size: 22px
+  text-align: right
+  span::before
+    font-family: "Font Awesome 5 Free"
+    font-size: 16px
+    content: "\f232"
+    color: $accent
+    margin-right: 7px
+  +media-breakpoint-down(sm)
+    font-size: 20px
+
+.main-screen__offer
+  margin-top: 95px
+  +media-breakpoint-down(md)
+    margin-top: 60px
+  +media-breakpoint-down(sm)
+    margin-top: 50px
+  +media-breakpoint-down(xs)
+    text-align: center
+  h1
+    color: $text-bright
+    font-family: $header-font
+    font-weight: normal
+    font-size: 36px
+    line-height: 1
+    margin: 0
+    letter-spacing: 1px
+    +media-breakpoint-down(sm)
+      font-size: 32px
+    &::after
+      content: ""
+      width: 500px
+      height: 1px
+      display: block
+      background: #494949
+      margin-top: 18px
+      +media-breakpoint-down(sm)
+        width: 100%
+    span
+      font-size: 28px
+      +media-breakpoint-down(sm)
+        font-size: 24px
+      +media-breakpoint-down(xs)
+        font-size: 20px
+  ul
+    padding: 0
+    margin: 35px 0 0 0
+    +media-breakpoint-down(sm)
+    margin: 12px 0 0 0
+    li
+      color: $text-bright
+      font-family: $text-font
+      font-weight: normal
+      list-style: none
+      &::before
+        font-family: "Font Awesome 5 Free"
+        font-size: 13px
+        content: "\f00c"
+        color: $accent
+        margin-right: 12px
+    +media-breakpoint-down(xs)
+      font-size: 14px
+
+.main-screen__offer-wrap
+  position: relative
+  padding-left: 33px
+  +media-breakpoint-down(md)
+    padding-left: 0
+
+.main-screen__masterclasses_xs
+  display: none
+  +media-breakpoint-down(xs)
+    display: list-item
+
+.main-screen__masterclasses_sm
+  display: list-item
+  +media-breakpoint-down(xs)
+      display: none
+
+.main-screen__btn
+  width: 313px
+  height: 65px
+  border: solid 2px $accent
+  border-radius: 100px
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $text-bright
+  margin: 68px 0 0 0
+  transition: .3s ease
+  &:hover
+    color: $text-bright
+    text-decoration: none
+    background: rgba(205, 184, 110, .2)
+  +media-breakpoint-down(md)
+    margin: 30px 0 0 0
+  +media-breakpoint-down(xs)
+    margin: 30px auto
+    width: 280px
+    height: 58px
+
+.main-screen__img
+  margin-top: 15px
+  text-align: right
+  +media-breakpoint-down(md)
+    display: none
+  img
+    padding-right: 33px
+
+.main-screen__mouse
+  border: 2px solid #ffffff
+  border-radius: 13px
+  bottom: 40px
+  display: block
+  height: 46px
+  left: 50%
+  transform: translate(50%)
+  margin: 0 auto 0 -26px
+  position: absolute
+  width: 26px
+  cursor: pointer
+  & span 
+    animation-duration: 1s
+    animation-fill-mode: both
+    animation-iteration-count: infinite
+    animation-name: scroll
+    background: none repeat scroll 0 0 #ffffff
+    border: 1px solid transparent
+    border-radius: 4px
+    display: block
+    height: 4px
+    margin: 6px auto
+    width: 4px
+
+@keyframes scroll
+  0%
+    opacity: 1
+    transform: translateY(0px)
+
+  100%
+    opacity: 0
+    transform: translateY(20px)
+// MAIN-SCREEN CLOSED
+
+// SECTION-1 OPEND
+.section-1
+  background: $bg-bright
+
+.section-1__header
+  text-align: center
+  h2
+    margin: 150px auto 70px
+    font-family: $header-font
+    font-weight: normal
+    font-size: $header-size
+
+.section-1__content
+  padding-bottom: 75px
+  article
+    padding-right: 30px
+    line-height: 1.95
+    p
+      margin-bottom: 30px
+    p:last-child
+      margin-bottom: 0
+  +media-breakpoint-down(md)
+    padding-right: 0
+    // padding-bottom: 0
+
+// responsiveSlides opened
+.rslides
+  position: relative
+  list-style: none
+  overflow: hidden
+  width: 100%
+  padding: 0
+  margin-top: 11px
+  +media-breakpoint-down(md)
+    margin-bottom: 30px
+
+.rslides li
+  -webkit-backface-visibility: hidden
+  position: absolute
+  display: none
+  width: 100%
+  left: 0
+  top: 0
+
+.rslides li:first-child
+  position: relative
+  display: block
+  float: left
+
+.rslides img
+  display: block
+  height: auto
+  float: left
+  width: 100%
+  border: 0
+  margin-left: 30px
+  +media-breakpoint-down(md)
+    margin-left: 0
+// responsiveSlides closed
+// SECTION-1 CLOSED
+
+// SECTION-2 OPENED
+.section-2
+  min-height: 530px
+  background: $bg-bright
+  padding-bottom: 20px
+
+.section-2__header
+  text-align: center
+  h2
+    margin: 75px auto 70px
+    font-family: $header-font
+    font-weight: normal
+    font-size: $header-size
+    color: $text-dark
+
+.section-2__owl-carousel-content
+  display: none
+  +media-breakpoint-down(md)
+    display: block
+
+.section-2__content
+  display: block
+  +media-breakpoint-down(md)
+    display: none
+
+.owl-dots
+  margin-bottom: 55px
+
+.section-2__item-wrap
+  text-align: center
+  margin-bottom: 30px
+
+.section-2__item
+  width: 100%
+  // margin-bottom: 10px
+  overflow: hidden
+  position: relative
+  img
+    width: 100%
+    height: 100%
+    transition: all 1s ease-out
+    &:hover
+      cursor: zoom-in
+      transform: scale(1.03)
+
+.section-2__item-title-wrap
+  background: #272727
+  padding: 35px 20px 35px 20px
+  text-align: center
+
+.section-2__item-title
+  font-family: $text-font
+  color: $text-bright
+// SECTION-2 CLOSE
+
+// SECTION-3 OPENED
+.section-3
+  background: $bg-dark
+  // padding-bottom: 75px
+
+.section-3__content
+  display: block
+  +media-breakpoint-down(md)
+    display: none
+
+.section-3__owl-carousel-content
+  display: none
+  +media-breakpoint-down(md)
+    display: block
+
+.section-3__header
+  text-align: center
+  h2
+    margin: 150px auto 70px
+    font-family: $header-font
+    font-weight: normal
+    font-size: $header-size
+    color: $text-bright
+
+.section-3__item-wrap
+  box-shadow: 2px 2px 5px rgba(154, 147, 140, .2)
+  h3
+    margin-top: 10px
+  img
+    width: 100%
+    height: 100%
+    transition: all 1s ease-out
+    &:hover
+      cursor: zoom-in
+      transform: scale(1.05)
+
+.section-3__item
+  width: 100%
+  overflow: hidden
+  background: #eee9de
+
+.section-3__item-img-wrap
+  width: 100%
+  overflow: hidden
+
+.section-3__item-text
+  padding: 0 25px 0 25px
+
+.section-3__item-btn-wrap
+  text-align: center
+  background: #eee9de
+
+.section-3__item-img-text
+  text-align: left
+
+.section-3__item-in-stock
+  display: block
+  margin-bottom: 10px
+  color: #D4BE71
+  &::before
+    font-family: "Font Awesome 5 Free"
+    font-size: 13px
+    content: "\f00c"
+    color: $accent
+    margin-right: 8px
+
+.section-3__item-old-price, .section-3__item-new-price
+  font-family: $header-font
+  font-size: 22px
+  color: #ff8989
+  text-decoration: line-through
+
+.section-3__item-old-price
+  margin-right: 10px
+  b
+    color: rgba(51, 51, 51, .3)
+
+.section-3__item-new-price
+  color: $text-dark
+  text-decoration: none
+
+.section-3__item-btn
+  width: 180px
+  height: 50px
+  border: solid 2px $accent
+  border-radius: 100px
+  background: #eee9de
+  color: $text-dark
+  margin: 30px 0 40px 0
+  transition: .3s ease
+  &:hover
+    cursor: pointer
+    background: rgba(205, 184, 110, .3)
+  +media-breakpoint-down(md)
+    width: 80%
+// SECTION-3 CLOSED
+
+// SECTION-4 OPENED
+.section-4
+  background: $bg-dark
+
+.section-4__header
+  text-align: center
+  h2
+    margin: 150px auto 70px
+    font-family: $header-font
+    font-weight: normal
+    font-size: $header-size
+    color: $text-bright
+
+.section-4__text
+  font-family: $text-font
+  font-size: 16px
+  color: $accent
+  text-align: center
+  margin-bottom: 90px
+
+.section-4__block-header
+  background: #fff
+  height: 100px
+
+.section-4__left-block
+  margin-right: 14px
+  +media-breakpoint-down(md)
+    margin-right: 0
+    padding-bottom: 30px
+    // border-bottom: 1px solid #3e3e3e
+  h3
+    text-align: center
+    color: $text-dark
+    line-height: 100px
+    margin: 0
+
+.section-4__right-block
+  margin-left: 14px
+  +media-breakpoint-down(md)
+    margin-left: 0
+    padding-top: 30px
+  h3
+    text-align: center
+    color: $text-dark
+    line-height: 100px
+    margin: 0
+
+.section-4__block-content
+  background: rgba(238, 233, 222, .15)
+  input
+    width: 20px
+    height: 20px
+    margin-right: 15px
+    &:hover
+      cursor: pointer
+    +media-breakpoint-down(xs)
+      margin-right: 10px
+  img
+    width: 150px
+    height: 150px
+    &:hover
+      cursor: zoom-in
+
+// #cbx
+//   width: 20px
+//   height: 20px
+//   margin-right: 15px
+
+
+// .check
+//   cursor: pointer
+//   position: relative
+//   margin: auto
+//   width: 18px
+//   height: 18px
+//   -webkit-tap-highlight-color: transparent
+//   transform: translate3d(0,0,0)
+//   &:before
+//     content: ""
+//     position: absolute
+//     top: -15px
+//     left: -15px
+//     width: 48px
+//     height: 48px
+//     border-radius: 50%
+//     background: rgba(#223254,.03)
+//     opacity: 0
+//     transition: opacity .2s ease
+//   svg
+//     position: relative
+//     z-index: 1
+//     fill: none
+//     stroke-linecap: round
+//     stroke-linejoin: round
+//     stroke: #C8CCD4
+//     stroke-width: 1.5
+//     transform: translate3d(0,0,0)
+//     transition: all .2s ease
+//     path
+//       stroke-dasharray: 60
+//       stroke-dashoffset: 0
+//     polyline 
+//       stroke-dasharray: 22
+//       stroke-dashoffset: 66
+//   &:hover 
+//     &:before
+//       opacity: 1
+//     svg
+//       stroke: $accent
+//       // stroke: #4285F4
+
+// #cbx:checked + .check
+//   svg
+//     stroke: $accent
+//     // stroke: #4285F4
+//     path
+//       stroke-dashoffset: 60
+//       transition: all .3s linear
+//     polyline
+//       stroke-dashoffset: 42
+//       transition: all .2s linear
+//       transition-delay: .15s
+
+.section-4__block-content-img-wrap
+  display: inline-block
+
+.section-4__block-content-left-column, .section-4__block-content-right-column
+  text-align: center
+  padding-top: 50px
+
+.section-4__block-content-left-column
+  input
+    margin-left: 45px
+    +media-breakpoint-down(lg)
+      margin-left: 10px
+    +media-breakpoint-down(sm)
+      margin-left: 0
+  +media-breakpoint-down(sm)
+    padding-top: 50px
+
+.section-4__block-content-right-column
+  padding-right: 50px
+  +media-breakpoint-down(lg)
+    padding-right: 10px
+  +media-breakpoint-down(md)
+    padding-right: 0
+  +media-breakpoint-down(sm)
+    padding-top: 50px
+  +media-breakpoint-down(xs)
+    padding-top: 0
+
+.section-4__block-content-item
+  padding-bottom: 50px
+  &:last-child
+    padding-bottom: 75px
+    +media-breakpoint-down(xs)
+      padding-bottom: 50px
+
+.section-4__line
+  height: 325px
+  position: absolute
+  top: 50%
+  left: 100%
+  transform: translate(0, -50%)
+  border-right: 1px solid #3e3e3e
+  +media-breakpoint-down(md)
+    // display: none
+    height: 0
+    width: 225px
+    position: absolute
+    top: 100%
+    left: 50%
+    transform: translate(-50%, 0)
+    border-right: none
+    border-bottom: 1px solid #3e3e3e
+
+
+.section-4__btn
+  display: block
+  width: 397px
+  height: 65px
+  border: solid 2px $accent
+  border-radius: 100px
+  color: $text-bright
+  background: rgba(0, 0, 0, 0)
+  margin: 50px auto 150px
+  transition: .3s ease
+  &:hover
+    cursor: pointer
+    background: rgba(205, 184, 110, .2)
+  +media-breakpoint-down(xs)
+    width: 100%
+
+// SECTION-4 CLOSED
+
+// SECTION-5 OPENED
+.section-5
+  background: #f2f2e9
+  min-height: 530px
+  +media-breakpoint-down(md)
+    background: url(../img/section-5__left-side/pattern-2.png) #f2f2e9 round
+
+.section-5__header
+  text-align: center
+  h2
+    margin: 150px auto 70px
+    font-family: $header-font
+    font-weight: normal
+    font-size: $header-size
+    color: $text-dark
+
+.section-5__left-side
+  h3
+    font-family: $header-font
+    font-weight: normal
+    font-size: 24px
+    margin-bottom: 20px
+    span
+      +media-breakpoint-down(xs)
+        display: block
+      +media-breakpoint-up(lg)
+        display: block
+      +media-breakpoint-up(xl)
+        display: inline
+  p
+    margin-bottom: 20px
+
+.section-5__right-side
+  border-left: 1px solid #d1d1c8
+  padding-left: 30px
+  img
+    opacity: .75
+  +media-breakpoint-down(md)
+    display: none
+
+.section-5__bottom_md
+  display: block
+  +media-breakpoint-down(sm)
+    display: none
+  text-align: center
+  margin-top: 60px
+  margin-bottom: 75px
+  h3
+    padding-bottom: 20px
+
+.section-5__bottom_sm
+  display: none
+  texst-align: center
+  +media-breakpoint-down(sm)
+    display: block
+  span
+    display: block
+  h3
+  padding-bottom: 20px
+
+
+.section-5__whatsapp-icon
+  &::before
+    font-family: "Font Awesome 5 Free"
+    font-size: 16px
+    content: "\f232"
+    color: $text-dark
+    margin-right: 7px
+    +media-breakpoint-down(md)
+    margin-left: 0
+
+.section-5__viber-icon
+  &::before
+    font-family: "Font Awesome 5 Free"
+    font-size: 16px
+    content: "\f409"
+    color: $text-dark
+    margin-right: 7px
+    margin-left: 20px
+    +media-breakpoint-down(md)
+    margin-left: 0
+
+.section-5__telegram-icon
+  &::before
+    font-family: "Font Awesome 5 Free"
+    font-size: 16px
+    content: "\f2c6"
+    color: $text-dark
+    margin-right: 7px
+    margin-left: 20px
+    +media-breakpoint-down(md)
+    margin-left: 0
+
+.section-5__email-icon
+  &::before
+    font-family: "Font Awesome 5 Free"
+    font-size: 16px
+    content: "\f0e0"
+    color: $text-dark
+    margin-right: 7px
+    +media-breakpoint-down(md)
+    margin-left: 0
+
+// SECTION-5 CLOSED
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @import "media" // Always at the end
